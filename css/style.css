@@ -523,3 +523,223 @@ body {
         font-size: 2rem;
     }
 }
+
+/* ======================================================= */
+/* SECÇÃO 7: VITRINE DE LIVROS                             */
+/* ======================================================= */
+.vitrine-livros {
+    background-color: #f9f9f9;
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.subtitulo-seccao {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 60px;
+}
+
+.livros-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.livro-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+}
+
+.livro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Imagens dos livros padronizadas */
+.livro-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.15); /* Efeito 3D no livro */
+    margin-bottom: 25px;
+}
+
+.livro-card h3 {
+    font-size: 1.1rem;
+    color: #1a304b;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.btn-link {
+    color: #c49a45;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.btn-link:hover {
+    color: #a37c32;
+}
+
+/* ======================================================= */
+/* SECÇÃO 8: PLANNER ELITE (A OFERTA MATADORA - REDESIGN)  */
+/* ======================================================= */
+.planner-elite {
+    background-color: #1a304b; /* Fundo azul corporativo escuro */
+    color: #ffffff;
+    padding: 100px 5%;
+}
+
+.planner-container {
+    display: flex;
+    /* MUDANÇA PRINCIPAL: Coluna em vez de linha */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Espaço entre a imagem gigante e o texto */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Coluna da Imagem (Agora ocupa a largura total) */
+.planner-imagem {
+    width: 100%;
+    text-align: center;
+}
+
+/* Animação suave e TAMANHO GIGANTE */
+.planner-imagem img {
+    width: 100%;
+    /* AQUI ESTÁ O SEGREDO: Aumentamos muito o tamanho máximo */
+    max-width: 750px; 
+    height: auto;
+    /* Mantemos a animação de flutuar */
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); /* Aumentei um pouco o movimento para ser mais notável na imagem grande */ }
+    100% { transform: translateY(0px); }
+}
+
+/* Coluna de Texto (Agora centralizada abaixo da imagem) */
+.planner-copy {
+    width: 100%;
+    max-width: 900px; /* Limita a largura do texto para não ficar cansativo de ler */
+    text-align: center; /* Centraliza tudo */
+}
+
+.planner-titulo {
+    font-size: 3rem; /* Título ligeiramente maior */
+    color: #c49a45;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.planner-hook {
+    font-size: 2.4rem; /* Gancho maior e mais impactante */
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.planner-desc {
+    font-size: 1.15rem;
+    color: #d1d5db;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 800px; /* O parágrafo fica um pouco mais estreito para leitura fácil */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.planner-desc strong {
+    color: #ffffff;
+}
+
+/* Grid de Benefícios (Mantém-se, mas centralizado na tela) */
+.features-grid {
+    display: grid;
+    /* MUDANÇA PRINCIPAL: Força exatamente 2 colunas de tamanhos iguais */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+    max-width: 800px; /* Limita a largura máxima para os cartões não ficarem esticados demais */
+    margin-left: auto; /* Centraliza o grid todo na tela */
+    margin-right: auto;
+}
+
+.feature-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #c49a45;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Agora o movimento é para cima */
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: #aeb6c0;
+    line-height: 1.6;
+}
+
+/* Botão Centralizado */
+.planner-cta-box {
+    text-align: center;
+}
+
+.btn-dourado-full {
+    background-color: #c49a45;
+    color: #1a304b;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 22px 50px; /* Botão ainda mais robusto */
+    display: inline-block;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(196, 154, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-dourado-full:hover {
+    background-color: #ffffff; /* Fica branco ao passar o rato para contraste máximo */
+    color: #1a304b;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Não são necessários ajustes de responsividade complexos, pois o layout natural já funciona bem no mobile! */
