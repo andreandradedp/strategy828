@@ -1,0 +1,525 @@
+/* ======================================================= */
+/* SECÇÃO 0: CONFIGURAÇÕES GERAIS                          */
+/* ======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Faz a rolagem da página ser suave ao clicar no menu */
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* ======================================================= */
+/* SECÇÃO 1: CABEÇALHO E MENU DE NAVEGAÇÃO                 */
+/* ======================================================= */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra leve no fundo do menu */
+    position: fixed; /* Fixa o menu no topo ao rolar */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Garante que o menu fica sempre por cima de tudo */
+}
+
+.logo img {
+    height: 60px; /* Tamanho do logótipo */
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espaço entre os links do menu */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #c49a45; /* Muda para dourado ao passar o rato */
+}
+
+
+/* ======================================================= */
+/* SECÇÃO 2: DESTAQUE PRINCIPAL (HERO SECTION)             */
+/* ======================================================= */
+.hero {
+    height: 100vh;
+    /* Fundo escurecido sobreposto à imagem da mesa de negócios */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8)), url('../assets/img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 80px; /* Dá espaço para o menu fixo não cobrir o conteúdo */
+}
+
+.hero-conteudo {
+    max-width: 800px;
+    color: #ffffff;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+/* Formatação do botão principal da Secção Hero */
+.btn-principal {
+    display: inline-block;
+    padding: 18px 35px;
+    background-color: #c49a45; /* Cor dourada */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: #a37c32; /* Dourado mais escuro */
+    transform: translateY(-3px); /* Efeito de salto */
+}
+
+
+/* ======================================================= */
+/* SECÇÃO 3: SERVIÇOS (COMO POSSO AJUDAR)                  */
+/* ======================================================= */
+.servicos {
+    background-color: #f4f4f4; /* Fundo cinza claro */
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.titulo-seccao {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Define como os cartões se organizam lado a lado */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+    flex-wrap: wrap; /* Permite que os cartões desçam em ecrãs pequenos */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Visual individual de cada cartão */
+.card {
+    background-color: #1a304b; /* Azul corporativo */
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 320px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    border-bottom: 2px solid #c49a45; /* Linha dourada sob o título */
+    padding-bottom: 10px;
+}
+
+.card ul {
+    list-style-position: inside;
+    margin-bottom: 35px;
+    flex-grow: 1; /* Empurra o botão para a base do cartão */
+}
+
+.card ul li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* Formatação dos botões transparentes dentro dos cartões azuis */
+.btn-card {
+    display: block;
+    text-align: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #c49a45; /* Borda dourada */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-card:hover {
+    background-color: #c49a45; /* Preenche de dourado ao passar o rato */
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ======================================================= */
+/* SECÇÃO 4: METODOLOGIA E FORMATO DE ATUAÇÃO              */
+/* ======================================================= */
+.metodologia {
+    background-color: #ffffff; /* Fundo branco para dar "respiro" após a secção cinza */
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.passos-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Para se adaptar perfeitamente aos telemóveis */
+}
+
+/* O Cartão Base */
+.passo-item {
+    flex: 1;
+    min-width: 280px;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eeeeee;
+    transition: all 0.4s ease; /* A magia do movimento suave acontece aqui */
+    position: relative;
+}
+
+/* O Movimento: o cartão sobe ligeiramente e ganha sombra ao passar o rato */
+.passo-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #c49a45; /* A borda fica subtilmente dourada */
+}
+
+/* O Círculo com o Número */
+.passo-numero {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a304b; /* Azul corporativo */
+    background-color: #f4f4f4;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    transition: all 0.4s ease;
+}
+
+/* O número também interage com o rato! Fica dourado. */
+.passo-item:hover .passo-numero {
+    background-color: #c49a45;
+    color: #ffffff;
+}
+
+.passo-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.passo-item p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ======================================================= */
+/* SECÇÃO 5: SOBRE MIM (QUEM EU SOU)                       */
+/* ======================================================= */
+.sobre-mim {
+    background-color: #f9f9f9; /* Fundo cinza muito claro para diferenciar */
+    padding: 100px 5%;
+}
+
+.sobre-container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    justify-content: center;
+    gap: 60px; /* Espaço grande entre a imagem e o texto */
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap-reverse; /* Em telas pequenas, o texto fica acima da imagem */
+}
+
+/* Estilos da Coluna da Imagem */
+.sobre-imagem {
+    flex: 1;
+    min-width: 300px; /* Tamanho mínimo para a imagem não ficar muito pequena */
+    text-align: center;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    max-width: 450px; /* Tamanho máximo da imagem */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Sombra suave e elegante */
+    transition: transform 0.4s ease; /* Efeito de movimento suave */
+}
+
+/* Efeito de zoom suave ao passar o mouse na imagem */
+.sobre-imagem img:hover {
+    transform: scale(1.03); /* Aumenta ligeiramente a imagem */
+}
+
+/* Estilos da Coluna do Texto */
+.sobre-texto {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.titulo-seccao-esquerda {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitulo-destaque {
+    font-size: 1.3rem;
+    color: #c49a45; /* Cor dourada para destaque */
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.sobre-texto p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px; /* Espaço entre os parágrafos */
+}
+
+.sobre-texto strong {
+    color: #1a304b; /* Palavras em negrito com a cor azul corporativa */
+}
+
+/* Ajuste para telas menores (celulares) */
+@media (max-width: 768px) {
+    .sobre-container {
+        text-align: center; /* Centraliza o texto em telas pequenas */
+    }
+    
+    .sobre-texto {
+        text-align: center;
+    }
+}
+
+/* ======================================================= */
+/* SECÇÃO 6: ESCOLHA O SEU CAMINHO (SPLIT SCREEN ANIMADO)  */
+/* ======================================================= */
+.caminhos-split {
+    display: flex;
+    min-height: 650px; /* Altura mínima para impor presença */
+    width: 100%;
+    overflow: hidden; /* Garante que nada sai do container durante a animação */
+}
+
+/* Configuração Base das Colunas */
+.caminho-coluna {
+    flex: 1; /* Ambas começam com o mesmo tamanho (50%) */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    transition: all 0.5s ease-in-out; /* O segredo do movimento suave */
+    cursor: default;
+}
+
+/* Películas de sobreposição para garantir leitura do texto sobre as fotos */
+.overlay-caminho {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Cores específicas de cada lado */
+.empresarial .overlay-caminho {
+    background-color: rgba(26, 48, 75, 0.85); /* Azul corporativo forte */
+}
+.pessoal .overlay-caminho {
+    background-color: rgba(196, 154, 69, 0.75); /* Dourado quente */
+}
+
+.conteudo-caminho {
+    position: relative;
+    z-index: 2; /* Texto fica sobre a película */
+    max-width: 500px;
+    color: #ffffff;
+}
+
+/* --- EFEITOS DE MOVIMENTO E HOVER (A MÁGICA) --- */
+
+/* Quando passa o mouse numa coluna, ela cresce */
+.caminho-coluna:hover {
+    flex: 1.5; /* Aumenta de tamanho */
+}
+
+/* Quando passa o mouse na empresarial, a película dela fica um pouco mais transparente para destacar a foto */
+.empresarial:hover .overlay-caminho {
+    background-color: rgba(26, 48, 75, 0.7);
+}
+
+/* Quando passa o mouse na pessoal, a película dela também clareia */
+.pessoal:hover .overlay-caminho {
+    background-color: rgba(196, 154, 69, 0.6);
+}
+
+/* Efeito de "diminuir" o lado não focado (Este é um truque de CSS avançado)
+   Se o mouse está sobre a SECÇÃO, mas NÃO sobre esta coluna específica, ela encolhe. */
+.caminhos-split:hover .caminho-coluna:not(:hover) {
+    flex: 0.8; /* Fica menor */
+    filter: grayscale(30%) brightness(0.8); /* Fica ligeiramente cinza e mais escura */
+}
+
+
+/* --- TIPOGRAFIA E CONTEÚDO --- */
+.conteudo-caminho h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.dor-principal {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    border-left: 3px solid #ffffff;
+    padding-left: 15px;
+}
+
+.lista-solucoes h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.lista-solucoes ul {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.lista-solucoes ul li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 25px;
+}
+
+/* Ícone de "check" antes de cada solução */
+.lista-solucoes ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* --- BOTÕES MATADORES (CTA) --- */
+.btn-caminho {
+    display: inline-block;
+    padding: 18px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-empresa {
+    background-color: #ffffff;
+    color: #1a304b;
+}
+
+.btn-empresa:hover {
+    background-color: #c49a45; /* Fica dourado no hover */
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.btn-pessoal {
+    background-color: #1a304b; /* Botão azul sobre o fundo dourado */
+    color: #ffffff;
+}
+
+.btn-pessoal:hover {
+    background-color: #ffffff;
+    color: #1a304b;
+    transform: translateY(-3px);
+}
+
+/* --- RESPONSIVIDADE (Para Celulares e Tablets) --- */
+@media (max-width: 900px) {
+    .caminhos-split {
+        flex-direction: column; /* Empilha as colunas verticalmente */
+    }
+
+    .caminho-coluna {
+        padding: 80px 20px; /* Mais espaço interno no mobile */
+        flex: auto; /* Remove o efeito de flex-grow no mobile */
+        min-height: 500px;
+    }
+
+    /* Desativa os efeitos de hover complexos em telas de toque para evitar bugs */
+    .caminho-coluna:hover { flex: auto; }
+    .caminhos-split:hover .caminho-coluna:not(:hover) { flex: auto; filter: none; }
+
+    .conteudo-caminho h2 {
+        font-size: 2rem;
+    }
+}
