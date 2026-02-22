@@ -742,4 +742,268 @@ body {
     box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
 }
 
-/* Não são necessários ajustes de responsividade complexos, pois o layout natural já funciona bem no mobile! */
+/* ======================================================= */
+/* SECÇÃO 9: OS 3 PILARES DO PLANNER ELITE                 */
+/* ======================================================= */
+.pilares-metodo {
+    /* Usamos um tom de azul sutilmente mais escuro para criar profundidade sem quebrar a tela */
+    background-color: #112236; 
+    color: #ffffff;
+    padding: 90px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(196, 154, 69, 0.2); /* Linha dourada muito suave para separar */
+}
+
+.pilares-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pilares-titulo {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.destaque-dourado {
+    color: #c49a45;
+}
+
+.pilares-subtitulo {
+    font-size: 1.15rem;
+    color: #d1d5db;
+    max-width: 850px;
+    margin: 0 auto 60px auto;
+    line-height: 1.6;
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas perfeitas */
+    gap: 40px;
+}
+
+.pilar-card {
+    background: transparent;
+    padding: 20px;
+    transition: transform 0.4s ease;
+}
+
+/* Efeito de levitar o pilar ao passar o rato */
+.pilar-card:hover {
+    transform: translateY(-15px);
+}
+
+.pilar-icone {
+    width: 85px; /* Tamanho dos ícones */
+    height: auto;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.4));
+}
+
+.pilar-card:hover .pilar-icone {
+    transform: scale(1.1); /* Ícone "pula" ligeiramente */
+}
+
+.pilar-nome {
+    font-size: 1.15rem;
+    color: #c49a45;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fase {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.8;
+}
+
+.pilar-card p {
+    font-size: 1rem;
+    color: #aeb6c0;
+    line-height: 1.7;
+}
+
+/* Responsividade: No celular, os 3 pilares ficam um abaixo do outro */
+@media (max-width: 900px) {
+    .pilares-grid {
+        grid-template-columns: 1fr; 
+        gap: 50px;
+    }
+}
+
+/* ======================================================= */
+/* SECÇÃO 10: O SONHO EUROPEU (PARALLAX EMOCIONAL)         */
+/* ======================================================= */
+.sonho-europeu-parallax {
+    position: relative;
+    /* Altura da secção. Pode ajustar se quiser mais ou menos imagem visível */
+    height: 600px; 
+    
+    /* --- A MÁGICA DO PARALLAX --- */
+    background-image: url('../assets/img/familia-viagem.jpg'); /* A imagem que você vai escolher */
+    background-attachment: fixed; /* Isso faz a imagem "prender" no fundo enquanto o site rola */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* --------------------------- */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Película de gradiente sobre a imagem para destacar o texto branco */
+.overlay-gradiente {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente do azul escuro transparente para um azul mais sólido na base */
+    background: linear-gradient(to bottom, rgba(26, 48, 75, 0.6), rgba(26, 48, 75, 0.9));
+    z-index: 1;
+}
+
+.sonho-conteudo {
+    position: relative;
+    z-index: 2; /* Texto fica sobre a película */
+    max-width: 800px;
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+/* Animação de entrada suave para o texto */
+.sonho-conteudo {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sonho-conteudo h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sonho-conteudo p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+/* Botão Dourado Grande e Chamativo */
+.btn-dourado-grande {
+    background-color: #c49a45;
+    color: #1a304b;
+    font-size: 1.1rem;
+    padding: 20px 40px;
+    border-radius: 50px; /* Bordas bem arredondadas para um look moderno */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 25px rgba(196, 154, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-dourado-grande:hover {
+    background-color: #ffffff;
+    color: #1a304b;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+}
+
+/* Ajuste para celular: Desativa o parallax (que não funciona bem em mobile) e ajusta textos */
+@media (max-width: 768px) {
+    .sonho-europeu-parallax {
+        background-attachment: scroll; /* A imagem rola normalmente no celular */
+        height: auto;
+        padding: 100px 20px;
+    }
+    
+    .sonho-conteudo h2 {
+        font-size: 1.8rem;
+    }
+    
+    .sonho-conteudo p {
+        font-size: 1.05rem;
+    }
+}
+
+/* --- CAIXA DE GARANTIA (SECÇÃO 10 - TAMANHO AUMENTADO) --- */
+.garantia-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Aumentei o espaço entre o selo e o texto */
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.55); /* Fundo um pouco mais escuro para dar contraste à foto */
+    padding: 30px 40px; /* Muito mais espaço interno (respiro) */
+    border-radius: 12px;
+    border: 2px solid rgba(196, 154, 69, 0.6); /* Borda dourada mais grossa e visível */
+    max-width: 750px; /* Caixa mais larga para comportar os textos grandes */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    backdrop-filter: blur(8px); /* Desfoque mais intenso no fundo */
+}
+
+.selo-garantia {
+    width: 100px; /* MÁGICA AQUI: Aumentado de 60px para 100px! O selo agora é gigante */
+    height: auto;
+    flex-shrink: 0; 
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); /* Sombra mais forte para saltar da tela */
+}
+
+.garantia-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.garantia-texto strong {
+    color: #c49a45; /* Dourado */
+    font-size: 1.4rem; /* TÍTULO AUMENTADO (era 1.1rem) */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.garantia-texto span {
+    color: #ffffff; /* Branco puro e brilhante para leitura fácil */
+    font-size: 1.1rem; /* TEXTO AUMENTADO (era 0.95rem) */
+    line-height: 1.6;
+}
+
+/* Ajuste da Garantia Gigante para Celulares */
+@media (max-width: 768px) {
+    .garantia-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .selo-garantia {
+        width: 90px; /* Ainda continua bem grande no celular */
+        margin-bottom: 15px;
+    }
+}
