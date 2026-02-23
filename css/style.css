@@ -1007,3 +1007,151 @@ body {
         margin-bottom: 15px;
     }
 }
+
+/* ======================================================= */
+/* SECÇÃO 11: PROVA SOCIAL E AVALIAÇÕES (ZAASK) - REDESIGN */
+/* ======================================================= */
+.prova-social {
+    background-color: #ffffff; /* MUDANÇA 1: Fundo agora é BRANCO PURO */
+    padding: 100px 0; /* Removemos o padding lateral para a imagem tocar as bordas se quiser */
+    overflow: hidden;
+}
+
+.prova-titulo-container {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 5%; /* Mantemos o texto centralizado com margens */
+}
+
+/* O contentor que segura a imagem e os balões */
+.reviews-wrapper {
+    position: relative;
+    max-width: 1200px; /* Aumentei um pouco a largura máxima para dar mais impacto */
+    margin: 0 auto;
+    /* Removemos o border-radius daqui também */
+}
+
+/* Imagem de Fundo (Mulher) - O NOVO DESIGN */
+.img-fundo-mulher {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* MUDANÇA 2: Removemos border-radius e box-shadow */
+    
+    /* MUDANÇA 3: A MÁGICA DO ESVANECIMENTO (CSS MASK) */
+    /* Isto cria um degradê que torna as bordas laterais transparentes */
+    /* O centro (black) é visível, as pontas (transparent) somem */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    
+    /* Garante que a imagem fica atrás dos balões */
+    position: relative; 
+    z-index: 1;
+}
+
+/* --- ESTILOS GERAIS DOS BALÕES --- */
+.balao-review {
+    position: absolute;
+    z-index: 2;
+    opacity: 0; /* Escondidos por defeito para a animação */
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease;
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.2));
+}
+
+.balao-zaask {
+    position: absolute;
+    z-index: 3; /* Fica acima de tudo */
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
+    filter: drop-shadow(0px 15px 20px rgba(0,0,0,0.3));
+}
+
+.balao-zaask img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.balao-zaask:hover img {
+    transform: scale(1.05); /* Efeito de clique no botão Zaask */
+}
+
+/* --- POSICIONAMENTO EXATO (COMPUTADOR) --- */
+/* Estes valores foram calculados com base na imagem que enviaste */
+.b-esq-1 { top: 5%; left: 2%; width: 28%; }
+.b-esq-2 { top: 28%; left: -2%; width: 29%; }
+.b-esq-3 { top: 62%; left: 0%; width: 30%; }
+
+.b-dir-1 { top: 10%; right: 2%; width: 28%; }
+.b-dir-2 { top: 40%; right: -2%; width: 29%; }
+.b-dir-3 { top: 68%; right: 2%; width: 30%; }
+
+.balao-zaask { top: 46%; left: 22%; width: 22%; }
+
+/* --- ESTADOS INICIAIS DA ANIMAÇÃO --- */
+/* Balões da esquerda começam fora do ecrã pela esquerda */
+.esquerdo { transform: translateX(-100px); }
+/* Balões da direita começam fora do ecrã pela direita */
+.direito { transform: translateX(100px); }
+/* Balão Zaask começa pequeno (escala 0) */
+.balao-zaask { transform: scale(0.5); }
+
+
+/* --- ESTADOS FINAIS DA ANIMAÇÃO (Quando a classe .visivel é adicionada) --- */
+.reviews-wrapper.visivel .balao-review {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reviews-wrapper.visivel .balao-zaask {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Delays para os balões aparecerem em cascata (um a um) */
+.reviews-wrapper.visivel .b-esq-1 { transition-delay: 0.1s; }
+.reviews-wrapper.visivel .b-dir-1 { transition-delay: 0.2s; }
+.reviews-wrapper.visivel .b-esq-2 { transition-delay: 0.3s; }
+.reviews-wrapper.visivel .b-dir-2 { transition-delay: 0.4s; }
+.reviews-wrapper.visivel .b-esq-3 { transition-delay: 0.5s; }
+.reviews-wrapper.visivel .b-dir-3 { transition-delay: 0.6s; }
+.reviews-wrapper.visivel .balao-zaask { transition-delay: 0.8s; } /* O botão Zaask é a "cereja no topo do bolo" */
+
+
+/* --- RESPONSIVIDADE (A MAGIA PARA TELEMÓVEIS) --- */
+@media (max-width: 900px) {
+    .reviews-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .img-fundo-mulher {
+        margin-bottom: 20px;
+    }
+
+    /* Removemos as posições absolutas para que os balões empilhem organizadamente */
+    .balao-review, .balao-zaask {
+        position: relative;
+        top: auto; left: auto; right: auto;
+        width: 85%; /* Largura excelente para leitura no telemóvel */
+        max-width: 350px;
+    }
+
+    .balao-zaask {
+        width: 60%; /* O botão Zaask fica um pouco mais contido */
+        order: -1; /* Força o botão Zaask a aparecer logo a seguir à foto */
+        margin-top: -60px; /* Faz o botão Zaask sobrepor-se ligeiramente à foto no telemóvel */
+    }
+
+    /* Ajustamos a animação inicial no telemóvel para virem de baixo para cima, fica mais natural */
+    .esquerdo, .direito { transform: translateY(50px) !important; }
+    .balao-zaask { transform: translateY(30px) scale(0.8) !important; }
+
+    /* Quando ativados, voltam ao eixo 0 */
+    .reviews-wrapper.visivel .balao-review { transform: translateY(0) !important; }
+    .reviews-wrapper.visivel .balao-zaask { transform: translateY(0) scale(1) !important; }
+}

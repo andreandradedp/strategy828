@@ -265,5 +265,55 @@
         </div>
     </section>
 
+    <section id="avaliacoes" class="prova-social">
+        <div class="prova-titulo-container">
+            <h2 class="titulo-seccao">O que dizem os clientes</h2>
+            <p class="subtitulo-seccao">Resultados reais de quem já aplicou o método e transformou o seu planeamento.</p>
+        </div>
+        
+        <div class="reviews-wrapper" id="reviews-animacao">
+            
+            <img src="assets/img/mulher-lendo-review.png" alt="Clientes Satisfeitos a lerem avaliações" class="img-fundo-mulher">
+            
+            <a href="https://www.zaask.pt/user/raquelandradedepaula" target="_blank" rel="noopener noreferrer" class="balao-zaask">
+                <img src="assets/img/balao-zaask.png" alt="Avaliação 5 Estrelas Zaask - Ver Perfil">
+            </a>
+
+            <img src="assets/img/balao1-esquerdo.png" class="balao-review esquerdo b-esq-1" alt="Avaliação Marcello">
+            <img src="assets/img/balao2-esquerdo.png" class="balao-review esquerdo b-esq-2" alt="Avaliação Viviane">
+            <img src="assets/img/balao3-esquerdo.png" class="balao-review esquerdo b-esq-3" alt="Avaliação Olga">
+
+            <img src="assets/img/balao1-direito.png" class="balao-review direito b-dir-1" alt="Avaliação Miguel">
+            <img src="assets/img/balao2-direito.png" class="balao-review direito b-dir-2" alt="Avaliação André">
+            <img src="assets/img/balao3-direito.png" class="balao-review direito b-dir-3" alt="Avaliação Luís">
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cria um "Observador" que verifica se a secção está visível no ecrã
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Quando 20% da secção aparece no ecrã, ele adiciona a classe "visivel"
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visivel');
+                        // Opcional: Descomentar a linha abaixo se quiseres que a animação aconteça apenas 1 vez
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 }); // 0.2 significa 20% visível
+
+            // Diz ao observador para prestar atenção ao nosso contentor de reviews
+            const wrapper = document.getElementById('reviews-animacao');
+            if(wrapper) {
+                observer.observe(wrapper);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
     </body>
 </html>
