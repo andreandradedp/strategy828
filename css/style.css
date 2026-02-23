@@ -1076,28 +1076,25 @@ body {
     transform: scale(1.05); /* Efeito de clique no botão Zaask */
 }
 
-/* --- POSICIONAMENTO EXATO (COMPUTADOR) --- */
-/* Estes valores foram calculados com base na imagem que enviaste */
-.b-esq-1 { top: 5%; left: 2%; width: 28%; }
-.b-esq-2 { top: 28%; left: -2%; width: 29%; }
-.b-esq-3 { top: 62%; left: 0%; width: 30%; }
+/* --- POSICIONAMENTO EXATO (COMPUTADOR) - TAMANHOS REDUZIDOS --- */
+/* Diminuí a largura base para eles ficarem mais pequenos inicialmente */
+.b-esq-1 { top: 5%; left: 2%; width: 22%; }
+.b-esq-2 { top: 28%; left: -2%; width: 23%; }
+.b-esq-3 { top: 62%; left: 0%; width: 24%; }
 
-.b-dir-1 { top: 10%; right: 2%; width: 28%; }
-.b-dir-2 { top: 40%; right: -2%; width: 29%; }
-.b-dir-3 { top: 68%; right: 2%; width: 30%; }
+.b-dir-1 { top: 10%; right: 2%; width: 22%; }
+.b-dir-2 { top: 40%; right: -2%; width: 23%; }
+.b-dir-3 { top: 68%; right: 2%; width: 24%; }
 
 .balao-zaask { top: 46%; left: 22%; width: 22%; }
 
 /* --- ESTADOS INICIAIS DA ANIMAÇÃO --- */
-/* Balões da esquerda começam fora do ecrã pela esquerda */
 .esquerdo { transform: translateX(-100px); }
-/* Balões da direita começam fora do ecrã pela direita */
 .direito { transform: translateX(100px); }
-/* Balão Zaask começa pequeno (escala 0) */
 .balao-zaask { transform: scale(0.5); }
 
 
-/* --- ESTADOS FINAIS DA ANIMAÇÃO (Quando a classe .visivel é adicionada) --- */
+/* --- ESTADOS FINAIS DA ANIMAÇÃO (Quando aparecem no ecrã) --- */
 .reviews-wrapper.visivel .balao-review {
     opacity: 1;
     transform: translateX(0);
@@ -1106,6 +1103,23 @@ body {
 .reviews-wrapper.visivel .balao-zaask {
     opacity: 1;
     transform: scale(1);
+}
+
+/* --- A MÁGICA DO MOVIMENTO (HOVER) --- */
+/* Apenas aplicado em ecrãs de computador, pois em telemóveis não há "rato" para passar por cima */
+@media (min-width: 901px) {
+    .reviews-wrapper.visivel .balao-review:hover {
+        transform: scale(1.25); /* Aumenta o tamanho em 25% */
+        z-index: 10; /* Traz o balão para a frente de todos os outros */
+        cursor: pointer; /* Muda o cursor para uma mãozinha */
+        filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.4)); /* Sombra maior para dar sensação de flutuação */
+    }
+
+    .reviews-wrapper.visivel .balao-zaask:hover {
+        transform: scale(1.15); /* Botão Zaask também cresce um pouco mais */
+        z-index: 10;
+        filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.5));
+    }
 }
 
 /* Delays para os balões aparecerem em cascata (um a um) */
