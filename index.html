@@ -353,6 +353,13 @@
         </div>
     </section>
 
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-conteudo">
+            <p>Nós utilizamos cookies para melhorar a sua experiência, personalizar a navegação e analisar o tráfego do site. Ao continuar a navegar, concorda com a nossa política de privacidade e uso de cookies.</p>
+            <button id="aceitar-cookies" class="btn-cookie">Aceitar e Fechar</button>
+        </div>
+    </div>
+
     <footer class="rodape-site">
         <div class="rodape-container">
             <p class="versiculo">"Sabemos que Deus age em todas as coisas para o bem daqueles que o amam, dos que foram chamados de acordo com o seu propósito." <br><strong>Romanos 8:28</strong></p>
@@ -381,6 +388,26 @@
 
             }
         });
+
+        // ==========================================
+        // LÓGICA DO AVISO DE COOKIES
+        // ==========================================
+        const cookieBanner = document.getElementById('cookie-banner');
+        const btnAceitar = document.getElementById('aceitar-cookies');
+
+        // Verifica se o utilizador já aceitou no passado (olhando para o armazenamento local do navegador)
+        if (!localStorage.getItem('cookiesAceitos')) {
+            cookieBanner.style.display = 'block'; // Se não aceitou, mostra a barra
+        }
+
+        // Quando o botão é clicado
+        if (btnAceitar) {
+            btnAceitar.addEventListener('click', function() {
+                localStorage.setItem('cookiesAceitos', 'sim'); // Grava a permissão
+                cookieBanner.style.display = 'none'; // Esconde a barra imediatamente
+            });
+        }
+
     </script>
 
 </body>

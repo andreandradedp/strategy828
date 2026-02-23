@@ -1465,3 +1465,66 @@ body {
         justify-content: center; /* Centraliza os links de contacto */
     }
 }
+
+/* ======================================================= */
+/* AVISO DE COOKIES (RGPD / LGPD)                          */
+/* ======================================================= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(11, 23, 37, 0.95); /* Azul muito escuro com leve transparência */
+    color: #d1d5db;
+    padding: 20px 5%;
+    z-index: 9999; /* Garante que fica acima de TUDO no site */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(196, 154, 69, 0.3);
+}
+
+.cookie-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cookie-conteudo p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+}
+
+.btn-cookie {
+    background-color: #c49a45;
+    color: #1a304b;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-cookie:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Responsividade para telemóveis */
+@media (max-width: 768px) {
+    .cookie-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+    .btn-cookie {
+        width: 100%;
+    }
+}
